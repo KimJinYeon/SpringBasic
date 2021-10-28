@@ -30,3 +30,12 @@
     1. doGet()의 <form> 태그에 accept-charset='UTF-8' 추가
     2. doPost()에 request.setCharacterEncoding("UTF-8"); 추가
     3. response.setContentType("text/html;charset=UTF-8"); 추가
+
+### HttpServletRequest와 HttpServletResponse 이해하기
+
+    파라미터로 한글을 받아오면 한글을 제대로 인코딩하지 못하는 문제가 발생했다.
+    doGet()은 server.xml에서 수정, doPost()는 charset을 UTF-8로 명시하여 해결할 수 있다.
+    doPost()와 doGet()이 둘 다 있으면 doGet()을 우선해서 실행한다는 것을 알게 되었다.
+    IE에서는 한글 및 특수문자를 parse하지 않으므로 위의 해결방안이 먹히지 않을 수 있다. (Eclipse의 내부 브라우저가 IE라는 것도 알 수 있었다.)
+    URI, URL, ContentPath, RemoteAddr 등의 정보를 메소드를 통해 받아올 수 있었다.
+    헤더에 있는 정보는 request에 요청해서 받아올 수 있다는 것을 알았다.
